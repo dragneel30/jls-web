@@ -118,7 +118,7 @@ class Header extends React.Component {
 
     e.preventDefault();
     console.log(this.values)
-    axios.get('http://localhost:1234/bus/location', { params: { ...this.values} })
+    axios.get('http://210.14.16.68:1234/bus/location', { params: { ...this.values} })
     .then(response => {
       console.log(JSON.stringify(response))
       if ( response.data.data.length ) {

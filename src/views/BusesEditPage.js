@@ -63,7 +63,7 @@ class BusesEditPage extends React.Component {
     e.preventDefault()
 
     console.log(this.state.current_values)
-    axios.post('http://localhost:1234/buses/edit', this.state.current_values)
+    axios.post('http://210.14.16.68:1234/buses/edit', this.state.current_values)
     .then(response => {
 
       console.log(response) 

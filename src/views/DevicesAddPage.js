@@ -46,7 +46,7 @@ class DevicesAddPage extends React.Component {
   onSubmit = (e) => {
     e.preventDefault()
 
-    axios.post('http://localhost:1234/devices/add', this.values)
+    axios.post('http://210.14.16.68:1234/devices/add', this.values)
     .then(response => {
 
       console.log(response) 

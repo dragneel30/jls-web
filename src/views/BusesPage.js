@@ -44,7 +44,7 @@ class BusesPage extends React.Component {
     }
     
     componentDidMount() {
-      axios.get(`http://localhost:1234/buses/`)
+      axios.get(`http://210.14.16.68:1234/buses/`)
         .then(res => {
           const buses = res.data.data;
           this.setState({ buses });

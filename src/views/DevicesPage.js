@@ -43,7 +43,7 @@ class DevicesPage extends React.Component {
     }
     
     componentDidMount() {
-      axios.get(`http://localhost:1234/devices/`)
+      axios.get(`http://210.14.16.68:1234/devices/`)
         .then(res => {
           const devices = res.data.data;
           this.setState({ devices });

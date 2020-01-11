@@ -206,7 +206,7 @@ class Map extends React.Component {
     if ( lat && lng )
       this.setState({center: {lat: parseFloat(lat), lng: parseFloat(lng)}})
 
-    axios.get('http://localhost:1234/buses/location')
+    axios.get('http://210.14.16.68:1234/buses/location')
     .then(response => {
 
       let locations = response.data.data
