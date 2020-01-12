@@ -34,7 +34,6 @@ import { NavLink } from "react-router-dom";
 import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
-
 const axios = require('axios')
 
 class DriversPage extends React.Component {
@@ -45,7 +44,7 @@ class DriversPage extends React.Component {
   componentDidMount() {
 
 
-    axios.get(`http://localhost:1234/drivers/`)
+    axios.get(`http://210.14.16.68:1234/drivers/`)
       .then(res => {
         const drivers = res.data.data;
         this.setState({ drivers });
@@ -76,10 +75,11 @@ class DriversPage extends React.Component {
                         </NavLink>
                     </div>
             </Col>
-            <Col md="12">
+            </Row>
               <Card className="card-plain">
                 <CardBody>
-                  <Table responsive>
+                 <div style={{overflow: 'auto', height: 550}}>
+                 <table class="table">
                     <thead className="text-primary">
                       <tr>
                         <th>Picture</th>
@@ -120,12 +120,11 @@ class DriversPage extends React.Component {
 
                     </tbody>
 
-                  </Table>
+                  </table>
+                </div>
                 </CardBody>
+                
               </Card>
-            </Col>
-            
-          </Row>
           
         </div>
       </>

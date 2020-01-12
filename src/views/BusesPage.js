@@ -78,7 +78,8 @@ class BusesPage extends React.Component {
             <Col md="12">
               <Card className="card-plain">
                 <CardBody>
-                  <Table responsive>
+                 <div style={{overflow: 'auto', height: 550}}>
+                 <table class="table">
                     <thead className="text-primary">
                       <tr>
                         <th>Name</th>
@@ -118,7 +119,8 @@ class BusesPage extends React.Component {
                             })
                           }
                     </tbody>
-                  </Table>
+                  </table>
+                  </div>
                 </CardBody>
               </Card>
             </Col>

@@ -160,8 +160,8 @@ class Map extends React.Component {
     this.state = {
       locations: [],
       center: {
-        lat: Number(params.get('lat')) || 0,
-        lng: Number(params.get('lng')) || 0
+        lat: Number(params.get('lat')) || 12.879721,
+        lng: Number(params.get('lng')) || 121.774017
       }
     };
     
@@ -227,7 +227,7 @@ class Map extends React.Component {
             style={{ height: `100vh`, position: "relative", overflow: "hidden" }}>
         
         <GoogleMap
-         zoom={12}
+         zoom={7}
          center={this.state.center}
 
          mapContainerStyle={{width: '100%', height: '100vh'}}
