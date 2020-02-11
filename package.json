@@ -15,16 +15,20 @@
     "node-sass": "4.12.0",
     "perfect-scrollbar": "1.4.0",
     "react": "16.8.6",
+    "react-async-script-loader": "^0.3.0",
     "react-autocomplete": "^1.8.1",
     "react-bootstrap-typeahead": "^3.4.7",
     "react-chartjs-2": "2.7.6",
     "react-dom": "16.8.6",
+    "react-flexview": "^4.0.4",
     "react-google-maps": "9.4.5",
     "react-notification-alert": "0.0.12",
+    "react-rounded-image": "^2.0.2",
     "react-router": "5.0.0",
     "react-router-dom": "5.0.0",
     "react-scripts": "3.0.1",
-    "reactstrap": "8.0.0"
+    "reactstrap": "8.0.0",
+    "socket.io-client": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",

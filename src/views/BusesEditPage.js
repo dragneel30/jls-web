@@ -10,7 +10,7 @@
 * Licensed under MIT (https://github.com/creativetimofficial/paper-dashboard-react/blob/master/LICENSE.md)
 
 * Coded by Creative Tim
-
+  
 =========================================================
 
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
@@ -63,7 +63,7 @@ class BusesEditPage extends React.Component {
     e.preventDefault()
 
     console.log(this.state.current_values)
-    axios.post('http://210.14.16.68:1234/buses/edit', this.state.current_values)
+    axios.post(`${process.env.REACT_APP_HTTP_SERVER}/buses/edit`, this.state.current_values)
     .then(response => {
 
       console.log(response) 

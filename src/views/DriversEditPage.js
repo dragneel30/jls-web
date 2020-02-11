@@ -47,7 +47,7 @@ class DriversEditPage extends React.Component {
     let params = new URLSearchParams(search); 
 
 
-    axios.get('http://210.14.16.68:1234/buses/available', { params: { context: 'drivers' } })
+    axios.get(`${process.env.REACT_APP_HTTP_SERVER}/buses/available`, { params: { context: 'drivers' } })
     .then(response => {
       let available_buses = [{
         id: params.get('bus_id'),
@@ -79,12 +79,12 @@ class DriversEditPage extends React.Component {
   //         'content-type': 'multipart/form-data'
   //     }
   // }
-  //   // axios.post("http://210.14.16.68:1234/upload", formData, config)
+  //   // axios.post("${process.env.REACT_APP_HTTP_SERVER}/upload", formData, config)
   //   // .then(response => { // then print response status
   //   //     console.log(response)
   //   // }).catch(console.log)
 
-  //   fetch('http://210.14.16.68:1234/upload', {
+  //   fetch('${process.env.REACT_APP_HTTP_SERVER}/upload', {
   //     method: 'POST',
   //     headers: {
   //         'content-type': 'multipart/form-data'
@@ -98,7 +98,7 @@ class DriversEditPage extends React.Component {
   //     error => console.log(error) // Handle the error response object
   //   );
   console.log(this.state.current_values)
-    axios.post('http://210.14.16.68:1234/drivers/edit', this.state.current_values)
+    axios.post(`${process.env.REACT_APP_HTTP_SERVER}/drivers/edit`, this.state.current_values)
     .then(response => {
 
       console.log(response) 

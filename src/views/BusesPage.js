@@ -44,7 +44,7 @@ class BusesPage extends React.Component {
     }
     
     componentDidMount() {
-      axios.get(`http://210.14.16.68:1234/buses/`)
+      axios.get(`${process.env.REACT_APP_HTTP_SERVER}/buses/`)
         .then(res => {
           const buses = res.data.data;
           this.setState({ buses });

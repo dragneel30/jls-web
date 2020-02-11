@@ -44,7 +44,7 @@ class DriversPage extends React.Component {
   componentDidMount() {
 
 
-    axios.get(`http://210.14.16.68:1234/drivers/`)
+    axios.get(`${process.env.REACT_APP_HTTP_SERVER}/drivers/`)
       .then(res => {
         const drivers = res.data.data;
         this.setState({ drivers });

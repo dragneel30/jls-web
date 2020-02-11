@@ -35,6 +35,10 @@ import {
 const axios = require('axios')
 
 class DriversAddPage extends React.Component {
+
+  state = {
+    imagePreview: 0
+  }
   constructor(props) {
     super(props)
     
@@ -45,7 +49,7 @@ class DriversAddPage extends React.Component {
   onSubmit = (e) => {
     e.preventDefault()
 
-    axios.post('http://210.14.16.68:1234/drivers/add', this.values)
+    axios.post(`${process.env.REACT_APP_HTTP_SERVER}/drivers/add`, this.values)
     .then(response => {
 
       console.log(response) 
@@ -57,11 +61,37 @@ class DriversAddPage extends React.Component {
     })
     .catch(console.log)
 
+    const formData = new FormData()
+
+    formData.append('image', this.file)
+    formData.append('test', 'sadasd')
+
+    fetch(`${process.env.REACT_APP_HTTP_SERVER}/upload?test=1`, {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.json())
+    .then(images => {
+      console.log(images)
+    })
+  }
+  handleClick = e => {
+    this.refs.fileUploader.click();
+  }
+  onChangeFile = e => {
+
+    this.file = e.target.files[0]
+    this.setState({imagePreview: URL.createObjectURL(this.file)})
+    
+
   }
   render() {
     return (
       <>
         <div className="content">
+        <input type="file" id="file" ref="fileUploader" style={{display: "none"}} 
+        
+          onChange={this.onChangeFile}/>
           <Row>
             <Col md="5">
               <Card className="card-user">
@@ -75,11 +105,11 @@ class DriversAddPage extends React.Component {
                         <FormGroup>
                           <label>Picture</label>
                             
-                          <div className="avatar" onClick={()=>{console.log('test')}}>
+                          <div className="avatar" onClick={this.handleClick}>
                             <img
                               alt="..."
                               className="img-circle img-no-padding img-responsive"
-                              src={require("assets/img/faces/joe-gardner-2.jpg")}
+                              src={this.state.imagePreview ? this.state.imagePreview : require("assets/img/faces/joe-gardner-2.jpg")}
                             />
                           </div>
                         </FormGroup>

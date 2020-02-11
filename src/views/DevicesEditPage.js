@@ -63,7 +63,7 @@ class DevicesEditPage extends React.Component {
     this.setState({current_values: {...this.state.current_values, id: params.get('id'),
      imei: params.get('imei'), bus_id: params.get('bus_id') }})
   
-    axios.get('http://210.14.16.68:1234/buses/available', { params: { context: 'devices' } })
+    axios.get(`${process.env.REACT_APP_HTTP_SERVER}/buses/available`, { params: { context: 'devices' } })
     .then(response => {
       let available_buses = [{
         id: params.get('bus_id'),
@@ -84,7 +84,7 @@ class DevicesEditPage extends React.Component {
 
     
     console.log(JSON.stringify(this.state.current_values))
-    axios.post('http://210.14.16.68:1234/devices/edit', this.state.current_values)
+    axios.post(`${process.env.REACT_APP_HTTP_SERVER}/devices/edit`, this.state.current_values)
     .then(response => {
 
       console.log(response) 
